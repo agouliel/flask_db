@@ -2,15 +2,17 @@ from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 
+
 app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 
 from app_pkg.bp_songs import bp as songs_bp
-app.register_blueprint(songs_bp, url_prefix='/songs')
+app.register_blueprint(songs_bp, url_prefix=f'{app.config['PREFIX']}/songs')
 
 from app_pkg.bp_api import bp as api_bp
-app.register_blueprint(api_bp, url_prefix='/api')
+app.register_blueprint(api_bp, url_prefix=f'{app.config['PREFIX']}/api')
+
 
 # https://abstractkitchen.com/blog/how-to-create-custom-jinja-filters-in-flask/
 def replace_double_quotes(value):

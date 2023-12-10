@@ -19,7 +19,7 @@
       { id: 'comment', name: 'Comment' },
     ],
     server: {
-          url: '/api/songs',
+          url: "{{ url_for('api.songs_api_view') }}",
           then: results => results.data,
     },
     search: true,
