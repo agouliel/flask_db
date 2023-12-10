@@ -8,3 +8,13 @@ class Tblsongs(db.Model):
     composer = db.Column(db.Text())
     album = db.Column(db.Text())
     comment = db.Column(db.Text())
+
+    def to_dict(self):
+        return {
+            'sid': self.sid,
+            'title': self.title,
+            'artist': self.artist,
+            'composer': self.composer,
+            'album': self.album,
+            'comment': self.comment,
+        }

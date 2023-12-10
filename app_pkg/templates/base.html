@@ -8,8 +8,6 @@
     {% endif %}
   </head>
   <body>
-    {% for record in records %}
-    <p>{{ record.title }}</p>
-    {% endfor %}
+    {% block content %}{% endblock content %}
   </body>
 </html>
