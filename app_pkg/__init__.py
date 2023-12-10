@@ -14,7 +14,10 @@ app.register_blueprint(api_bp, url_prefix='/api')
 
 # https://abstractkitchen.com/blog/how-to-create-custom-jinja-filters-in-flask/
 def replace_double_quotes(value):
-  return value.replace('"', "'")
+  if value:
+    return value.replace('"', "'")
+  else:
+    return value
 app.jinja_env.filters['replace_double_quotes'] = replace_double_quotes
 
 def replace_newlines(value):

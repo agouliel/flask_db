@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p><h2>Add a new song:</h2></p>
+
+<form action="" method='post'>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.title.label }}<br>
+        {{ form.title(size=100) }}
+    </p>
+    <p>
+        {{ form.artist.label }}<br>
+        {{ form.artist(size=100) }}
+    </p>
+    <p>
+        {{ form.album.label }}<br>
+        {{ form.album(size=100) }}
+    </p>
+    <p>
+        {{ form.composer.label }}<br>
+        {{ form.composer(size=100) }}
+    </p>
+    <p>
+        {{ form.comment.label }}<br>
+        {{ form.comment(size=1000) }}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock content %}
