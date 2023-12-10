@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 
-from app_pkg.bp_main import bp as main_bp
-app.register_blueprint(main_bp)
+from app_pkg.bp_songs import bp as songs_bp
+app.register_blueprint(songs_bp, url_prefix='/songs')
 
 
