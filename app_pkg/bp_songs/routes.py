@@ -3,6 +3,7 @@ from app_pkg.bp_songs import bp
 from app_pkg.bp_songs.models import Tblsongs
 from app_pkg.bp_songs.forms import SongForm
 from app_pkg import db
+from flask_login import login_required
 
 @bp.route('/all_songs')
 def songs_view():
@@ -11,6 +12,7 @@ def songs_view():
   return render_template('songs_gridjs.html', records=songs)
 
 @bp.route('/all_songs_with_api')
+@login_required
 def songs_with_api_view():
   return render_template('songs_gridjs_api.html')
 
