@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
@@ -31,3 +31,7 @@ def replace_newlines(value):
   else:
     return value
 app.jinja_env.filters['replace_newlines'] = replace_newlines
+
+@app.route(f"{app.config['PREFIX']}/")
+def home_view():
+  return render_template('home.html')

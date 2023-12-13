@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="jumbotron">
+    <h1 class="display-3">Alex Flask DB</h1>
+
+    <p class="lead">My personal database app (Songs, MIS, API) using Flask.</p>
+    {% if current_user.is_authenticated %}
+    Hello, {{ current_user.username }}.
+    {% else %}
+    <a class="btn btn-lg btn-primary" href="{{ url_for('auth.login') }}"
+        role="button">Login &raquo;</a>
+    {% endif %}
+  </div>
+{% endblock %}
