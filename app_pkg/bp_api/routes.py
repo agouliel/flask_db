@@ -5,3 +5,8 @@ from app_pkg.bp_songs.models import Tblsongs
 def songs_api_view():
   songs = Tblsongs.query.all()
   return {'data': [row.to_dict() for row in songs],}
+
+@bp.route('/songs/search/<search_term>')
+def songs_api_search_view(search_term):
+  songs = Tblsongs.query.filter(Tblsongs.title.contains(search_term))
+  return {'data': [row.to_dict() for row in songs],}
