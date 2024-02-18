@@ -5,3 +5,4 @@ Flask-WTF
 pyodbc
 python-dotenv
 flask-login
+flask-cors
