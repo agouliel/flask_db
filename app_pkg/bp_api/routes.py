@@ -1,11 +1,15 @@
 from app_pkg.bp_api import bp
 from app_pkg.bp_songs.models import Tblsongs
-from flask import url_for, request
+from flask import request
 from app_pkg import db
 
 @bp.route('/songs')
-@bp.route('/songs/search/')
 def songs_api_view():
+  songs = Tblsongs.query.all()
+  return {'data': [row.to_dict() for row in songs],}
+
+@bp.route('/songs/search/')
+def songs_api_search_all_view():
   page = request.args.get('page', 1, type=int)
   pagination = db.paginate(
       Tblsongs.query,
